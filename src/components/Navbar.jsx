@@ -67,21 +67,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className={styles.logo} onClick={(e) => handleLinkClick(e, "inicio")}>
           <div className={styles.logoIcon}>
-            {/* SVG Seat Representation */}
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path 
-                d="M8 3C8 2.44772 8.44772 2 9 2H15C15.5523 2 16 2.44772 16 3V9C16 11.2091 14.2091 13 12 13C9.79086 13 8 11.2091 8 9V3Z" 
-                stroke="#e11d48" 
-                strokeWidth="2" 
-                strokeLinecap="round"
-              />
-              <path 
-                d="M6 13C6 11.8954 6.89543 11 8 11H16C17.1046 11 18 11.8954 18 13V18C18 20.2091 16.2091 22 14 22H10C7.79086 22 6 20.2091 6 18V13Z" 
-                stroke="#e2e8f0" 
-                strokeWidth="2"
-              />
-              <path d="M12 13V22" stroke="#e11d48" strokeWidth="1" strokeDasharray="2 2" />
-            </svg>
+            <img src="/images/logo/logo.png" alt="Logo TapiMaster" className={styles.logoImg} />
           </div>
           <div className={styles.logoText}>
             <span className={styles.logoTitle}>TAPI<span>MASTER</span></span>

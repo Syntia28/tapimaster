@@ -18,6 +18,9 @@ export const metadata = {
   description: "Especialistas en tapizado de asientos de autos en Cajamarca. Trabajamos con Cuero Natural, Cuero Americano, Tacto Cuero y Pranna. Diseños personalizados y alta costura con garantía.",
   keywords: ["tapiceria cajamarca", "tapizado de autos", "cuero automotriz", "tapimaster", "mariscal caceres 1031", "pranna cajamarca"],
   authors: [{ name: "TapiMaster" }],
+  icons: {
+    icon: "/images/logo/favicon.png",
+  },
 };
 
 export const viewport = {
