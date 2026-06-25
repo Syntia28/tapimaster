@@ -1,0 +1,292 @@
+/* Design system variables for TapiMaster - Cajamarca */
+:root {
+  /* Dark Theme Tokens (Negro/Rojo) */
+  --bg-primary: #08080a;
+  --bg-secondary: #101014;
+  --bg-tertiary: #181820;
+  
+  --accent-red: #dc2626;
+  --accent-red-hover: #ef4444;
+  --accent-red-glow: rgba(220, 38, 38, 0.35);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(220, 38, 38, 0.4);
+  
+  --glass-bg: rgba(16, 16, 20, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: 16px;
+  
+  /* Light Theme Tokens (Blanco/Rojo) */
+  --bg-light: #ffffff;
+  --bg-light-secondary: #f8fafc;
+  --bg-light-tertiary: #f1f5f9;
+  --text-light-primary: #0f172a;
+  --text-light-secondary: #475569;
+  --text-light-muted: #64748b;
+  --border-light-theme: rgba(15, 23, 42, 0.08);
+  --border-light-active: rgba(220, 38, 38, 0.25);
+  
+  --font-heading: var(--font-outfit), 'Outfit', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Base resets */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-red) var(--bg-primary);
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red);
+}
+
+/* Typography styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+/* Utilitarios y Animaciones */
+.text-gradient {
+  background: linear-gradient(135deg, #f8fafc 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-red {
+  background: linear-gradient(135deg, #ffffff 40%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Estructuras de Costuras Rojas - Sello TapiMaster */
+.stitching-border {
+  position: relative;
+}
+.stitching-border::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed var(--accent-red);
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: var(--transition-smooth);
+}
+.stitching-border:hover::after {
+  opacity: 1;
+  border-color: var(--accent-red-hover);
+}
+
+/* Costura doble lateral */
+.double-stitch-left {
+  position: relative;
+  padding-left: 20px;
+}
+.double-stitch-left::before,
+.double-stitch-left::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  border-left: 2px dashed var(--accent-red);
+  opacity: 0.6;
+}
+.double-stitch-left::after {
+  left: 4px;
+  opacity: 0.3;
+}
+
+/* Glassmorphism containers (Oscuro) */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 12px 40px 0 rgba(220, 38, 38, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Glassmorphism containers (Claro / Blanco) */
+.light-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--border-light-theme);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+}
+
+.light-panel-hover:hover {
+  border-color: var(--accent-red);
+  box-shadow: 0 12px 40px 0 rgba(220, 38, 38, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Botón Deportivo */
+.btn-sporty {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--accent-red) 0%, #991b1b 100%);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px 0 var(--accent-red-glow);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-sporty::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn-sporty:hover {
+  box-shadow: 0 6px 20px 0 rgba(220, 38, 38, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-sporty:hover::before {
+  left: 100%;
+}
+
+.btn-sporty-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: inherit;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.btn-sporty-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-secondary);
+}
+
+/* Light Theme secondary button override */
+.btn-sporty-secondary-light {
+  border: 1px solid var(--border-light-theme);
+  color: var(--text-light-primary);
+}
+.btn-sporty-secondary-light:hover {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: var(--text-light-secondary);
+}
+
+/* Secciones Tricolor con Separadores Diagonales */
+.diagonal-separator-bottom {
+  position: relative;
+}
+.diagonal-separator-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(135deg, transparent 49%, var(--accent-red) 50%, var(--accent-red) 51%, var(--bg-light) 52%);
+  z-index: 5;
+}
+
+/* Slider indicators and helpers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}

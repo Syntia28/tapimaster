@@ -1,0 +1,172 @@
+.section {
+  padding: 100px 4% 100px;
+  background-color: var(--bg-light-secondary);
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.subtitle {
+  color: var(--accent-red);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-light-primary);
+}
+
+.description {
+  color: var(--text-light-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Services Cards Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+.card {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition-bounce);
+}
+
+/* Specific styling for Premium Card (Exclusivo) */
+.cardPremium {
+  border-color: var(--accent-red);
+  background: linear-gradient(180deg, rgba(220, 38, 38, 0.04) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 15px 35px rgba(220, 38, 38, 0.08);
+}
+
+.cardPremium::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px dashed rgba(220, 38, 38, 0.25);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.popularBadge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--accent-red);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.25);
+}
+
+/* Card elements */
+.cardHeader {
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-light-theme);
+  padding-bottom: 20px;
+}
+
+.serviceName {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-light-primary);
+  margin-bottom: 8px;
+}
+
+.servicePriceRange {
+  color: var(--accent-red);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.serviceDesc {
+  color: var(--text-light-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  min-height: 70px;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.featureIcon {
+  color: var(--accent-red);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureText {
+  color: var(--text-light-primary);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.featureTextMuted {
+  color: var(--text-light-muted);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.ctaBtn {
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  .card {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 2.1rem;
+  }
+}
