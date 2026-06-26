@@ -152,9 +152,7 @@ export default function SeatSimulator() {
               <circle cx="200" cy="280" r="8" fill="#111" />
             </motion.svg>
 
-            <div className={styles.previewBadge}>
-              <Sparkles size={18} /> Renderizado 3D Real-Time
-            </div>
+
           </div>
 
           {/* PANEL DE CONTROL */}
