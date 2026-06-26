@@ -32,7 +32,7 @@ export default function Contact() {
 
   const buildWA = () => {
     const msg = `Hola TapiMaster! Mi nombre es ${form.name}. Quiero cotizar un tapizado para mi vehículo ${form.car}.\n\n*Detalles:*\n- *Material:* ${MATERIAL_NAMES[form.material]}\n- *Servicio:* ${SERVICE_NAMES[form.service]}\n- *Mi teléfono:* ${form.phone}${form.notes ? `\n- *Notas:* ${form.notes}` : ""}`;
-    return `https://wa.me/51976543210?text=${encodeURIComponent(msg)}`;
+    return `https://wa.me/51992855239?text=${encodeURIComponent(msg)}`;
   };
 
   const handleSend = () => {
