@@ -1,0 +1,82 @@
+.cursorRing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  margin-top: -16px;
+  margin-left: -16px;
+  border: 2px solid var(--accent-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.15);
+  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), height 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin-top 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin-left 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.25s ease, background 0.25s ease;
+  will-change: transform, left, top;
+}
+
+.cursorVisible {
+  opacity: 1;
+}
+
+.cursorHovered {
+  width: 60px;
+  height: 60px;
+  margin-top: -30px;
+  margin-left: -30px;
+  border-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(220, 38, 38, 0.1);
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+}
+
+.cursorDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--accent-red-hover);
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.cursorHovered .cursorDot {
+  transform: scale(0.5);
+  background-color: #ffffff;
+  box-shadow: none;
+}
+
+.cursorTag {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-red);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
+  white-space: nowrap;
+  animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: translateX(-50%) scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}

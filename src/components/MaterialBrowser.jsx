@@ -11,16 +11,16 @@ const MATERIALS = [
     name: "Pranna",
     badge: "Sintético Premium",
     badgeType: "synthetic",
-    description: "Sintético automotriz de alta ingeniería, diseñado específicamente para soportar el desgaste diario continuo sin perder color ni estructura. Es el favorito para vehículos comerciales y de alto uso.",
+    description: "Siente la robustez y frescura de la Pranna. Un sintético automotriz de alta ingeniería formulado para soportar el tránsito pesado diario sin perder su color o textura original. Diseñado para resistir la abrasión en camionetas de trabajo y vehículos comerciales.",
     benefits: [
-      { title: "Durabilidad Extrema: ", desc: "Alta resistencia al frotamiento, desgarro y tensiones mecánicas." },
-      { title: "Mantenimiento Cero: ", desc: "Impermeable al 100%. Se limpia fácilmente con un paño húmedo y jabón suave." },
-      { title: "Tránsito Pesado: ", desc: "Ideal para colectivos, camionetas de trabajo y conductores de uso diario." }
+      { title: "Durabilidad Extrema: ", desc: "Resistencia superior al frotamiento constante y tensiones mecánicas." },
+      { title: "Mantenimiento Cero: ", desc: "100% impermeable. Se limpia al instante con un paño húmedo y jabón suave." },
+      { title: "Tránsito Pesado: ", desc: "Ideal para minería, camionetas pickup y flotas de alto recorrido." }
     ],
     warranty: "2 Años de Garantía",
     gallery: [
-      { url: "/images/real/trabajo5_consola_bellows.png", label: "Tapizado en Pranna Negro", sub: "Acabado clásico de alta resistencia" },
-      { url: "/images/real/trabajo6_asientos_pick_up.png", label: "Paneles y Asiento en Pranna", sub: "Combinación ideal para transporte" }
+      { url: "/images/real/trabajo5_consola_bellows.png", label: "Tapizado en Pranna Negro", sub: "Consola de alta resistencia" },
+      { url: "/images/real/trabajo6_asientos_pick_up.png", label: "Butacas de Trabajo en Pranna", sub: "Durabilidad garantizada en Cajamarca" }
     ]
   },
   {
@@ -28,11 +28,11 @@ const MATERIALS = [
     name: "Tacto Cuero",
     badge: "Sintético Flexible",
     badgeType: "synthetic",
-    description: "Material sintético con base textil que imita la textura del cuero a la perfección. Destaca por su alta suavidad y excelente adaptabilidad a la forma del asiento.",
+    description: "Experimenta la suavidad táctil y el confort del Tacto Cuero. Un material flexible con base textil que emula la textura del cuero premium, adaptándose ergonómicamente a tus butacas para un viaje placentero y suave.",
     benefits: [
-      { title: "Relación Costo-Beneficio: ", desc: "Aspecto elegante y premium con una inversión moderada y accesible." },
-      { title: "Protección UV Integrada: ", desc: "Formulado para resistir el sol intenso de Cajamarca sin resecarse ni agrietarse." },
-      { title: "Confort y Suavidad: ", desc: "Mayor flexibilidad corporal, proporcionando un viaje suave y fresco." }
+      { title: "Relación Costo-Beneficio: ", desc: "Aspecto elegante y premium con una inversión inteligente y moderada." },
+      { title: "Protección UV Integrada: ", desc: "Formulado para resistir la radiación de Cajamarca sin resecarse ni agrietarse." },
+      { title: "Confort y Suavidad: ", desc: "Excelente elasticidad que incrementa la comodidad de los pasajeros." }
     ],
     warranty: "3 Años de Garantía",
     gallery: [
@@ -45,11 +45,11 @@ const MATERIALS = [
     name: "Cuero Americano",
     badge: "Sintético de Alta Gama",
     badgeType: "premium",
-    description: "Sintético de calibre grueso y de tacto sumamente suave. Posee un grano elegante y un brillo mate característico que compite directamente con el cuero natural, con un rendimiento térmico mejorado.",
+    description: "Descubre la imponente presencia del Cuero Americano. Un revestimiento de calibre grueso con acabado mate y grano pronunciado que evoca el lujo clásico con un rendimiento térmico sobresaliente, ideal para climas cambiantes.",
     benefits: [
       { title: "Calibre Grueso y Firme: ", desc: "Mayor espesor que proporciona costuras de relieve pronunciado muy estéticas." },
-      { title: "Textura Realista: ", desc: "Grano de cuero grabado que simula a la perfección el cuero natural de alta gama." },
-      { title: "Retardante de Llama: ", desc: "Material con certificación ignífuga y alta resistencia a la abrasión." }
+      { title: "Textura Fotorrealista: ", desc: "Grano grabado de alta resolución que compite directamente con el cuero natural." },
+      { title: "Retardante de Llama: ", desc: "Material con certificación ignífuga y alta resistencia a la fricción." }
     ],
     warranty: "4 Años de Garantía",
     gallery: [
@@ -62,11 +62,11 @@ const MATERIALS = [
     name: "Cuero Natural",
     badge: "Exclusivo Genuino",
     badgeType: "genuine",
-    description: "La máxima expresión de lujo automotriz. Cuero 100% genuino de vacuno seleccionado. Se adapta al cuerpo de forma óptima, respira de manera natural y adquiere una pátina hermosa con los años.",
+    description: "Siente el aroma del cuero legítimo de importación. Cuero 100% genuino de vacuno seleccionado que respira de forma natural, templándose en el frío y manteniéndose fresco bajo el calor de la sierra cajamarquina.",
     benefits: [
-      { title: "Transpirabilidad Natural: ", desc: "Permite la circulación de aire, manteniéndose fresco en calor y templado en frío." },
-      { title: "Lujo y Confort Supremo: ", desc: "Textura y aroma inconfundible de cuero auténtico de gama ejecutiva." },
-      { title: "Inversión para Toda la Vida: ", desc: "Durabilidad de más de una década con el cuidado mínimo adecuado." }
+      { title: "Transpirabilidad Natural: ", desc: "Permite la circulación de aire, evitando la acumulación de calor corporal." },
+      { title: "Aroma y Lujo Supremo: ", desc: "Textura inimitable y fragancia de cuero auténtico de gama ejecutiva." },
+      { title: "Inversión para Toda la Vida: ", desc: "Durabilidad superior a una década con la pátina elegante que da el tiempo." }
     ],
     warranty: "5 Años de Garantía Completa",
     gallery: [
@@ -84,6 +84,10 @@ export default function MaterialBrowser() {
     "cuero-americano": 0,
     "cuero-natural": 0,
   });
+
+  // Magnifier State
+  const [hovering, setHovering] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0, percentX: 50, percentY: 50, clientX: 0, clientY: 0 });
 
   const activeMaterial = MATERIALS.find((m) => m.id === activeTab);
   const currentImgIndex = galleryIndexes[activeTab];
@@ -115,13 +119,48 @@ export default function MaterialBrowser() {
     }
   };
 
+  // Magnifier mouse tracker
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({
+      x,
+      y,
+      percentX: (x / rect.width) * 100,
+      percentY: (y / rect.height) * 100,
+      clientX: e.clientX,
+      clientY: e.clientY
+    });
+  };
+
+  // Get dynamic CSS filter to shift color of macro leather texture
+  const getFilterForMaterial = (id) => {
+    switch (id) {
+      case "pranna":
+        // Fine black tech synthetic look
+        return "brightness(0.7) contrast(1.15) grayscale(1)";
+      case "tacto-cuero":
+        // Soft matte black
+        return "brightness(0.9) contrast(0.9)";
+      case "cuero-americano":
+        // Standard premium leather
+        return "brightness(0.8) contrast(1.1)";
+      case "cuero-natural":
+        // Luxurious brown leather color shifting
+        return "sepia(0.6) brightness(0.65) contrast(1.15) hue-rotate(15deg)";
+      default:
+        return "none";
+    }
+  };
+
   return (
     <section id="materiales" className={styles.section}>
       <div className={styles.header}>
         <span className={styles.subtitle}>Con qué trabajamos</span>
-        <h2 className={styles.title}>Nuestros Materiales</h2>
+        <h2 className={styles.title}>Nuestros Materiales Premium</h2>
         <p className={styles.description}>
-          Seleccionamos únicamente materiales certificados de grado automotriz para garantizar acabados impecables, resistencia térmica y alta duración.
+          Seleccionamos únicamente materiales certificados de grado automotriz. Pasa el cursor sobre los paneles de detalles para magnificar la textura de alta costura.
         </p>
       </div>
 
@@ -149,6 +188,9 @@ export default function MaterialBrowser() {
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.4 }}
             className={`light-panel ${styles.detailsCard}`}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            onMouseMove={handleMouseMove}
           >
             <div className={styles.materialHeader}>
               <h3 className={styles.materialName}>{activeMaterial.name}</h3>
@@ -190,6 +232,9 @@ export default function MaterialBrowser() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
             className={styles.galleryCard}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            onMouseMove={handleMouseMove}
           >
             <div
               className={styles.galleryImage}
@@ -223,6 +268,33 @@ export default function MaterialBrowser() {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Floating Magnifier Lens Portal */}
+      <AnimatePresence>
+        {hovering && (
+          <motion.div
+            className={styles.magnifierLens}
+            style={{
+              left: `${mousePos.clientX}px`,
+              top: `${mousePos.clientY}px`,
+            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div
+              className={styles.magnifierImage}
+              style={{
+                backgroundImage: "url('/images/textures/leather_macro.png')",
+                backgroundPosition: `${mousePos.percentX}% ${mousePos.percentY}%`,
+                filter: getFilterForMaterial(activeTab),
+              }}
+            />
+            <div className={styles.magnifierIndicator}>Zoom Textura {activeMaterial.name}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

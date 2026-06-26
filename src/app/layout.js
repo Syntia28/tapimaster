@@ -1,4 +1,6 @@
 import { Outfit, Inter } from "next/font/google";
+import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -31,7 +33,11 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <Preloader />
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

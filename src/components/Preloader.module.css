@@ -1,0 +1,147 @@
+.preloaderContainer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000000;
+  overflow: hidden;
+}
+
+.gridOverlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(220, 38, 38, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Shift Light LED Indicator */
+.shiftLight {
+  width: 75px;
+  height: 28px;
+  border-radius: 4px;
+  background-color: #121216;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  transition: all 0.05s ease;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+}
+
+.shiftLightActive {
+  background-color: #ff003c;
+  border-color: #ff4d6d;
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffffff;
+  box-shadow: 0 0 25px #ff003c, inset 0 1px 3px rgba(255,255,255,0.4);
+}
+
+/* Gauge Wrapper */
+.gaugeWrapper {
+  position: relative;
+  width: 230px;
+  height: 230px;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.gaugeLabels {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.revsCount {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+
+.gaugeUnit {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+/* Brand Details */
+.brandContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brandTitle {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.brandTitle span {
+  color: var(--accent-red);
+}
+
+.brandTagline {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.loadingBarWrapper {
+  width: 150px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+.loadingBar {
+  height: 100%;
+  background: var(--accent-red);
+  box-shadow: 0 0 8px var(--accent-red);
+  width: 0;
+  transition: width 0.05s ease-out;
+}

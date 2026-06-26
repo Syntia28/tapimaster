@@ -1,3 +1,6 @@
+/* =====================
+   SECTION & LAYOUT
+   ===================== */
 .section {
   padding: 100px 4% 100px;
   background-color: var(--bg-light);
@@ -11,7 +14,9 @@
   align-items: stretch;
 }
 
-/* Left Column: Contact details and location map */
+/* =====================
+   LEFT COLUMN
+   ===================== */
 .infoColumn {
   display: flex;
   flex-direction: column;
@@ -73,6 +78,7 @@
   justify-content: center;
   color: var(--accent-red);
   flex-shrink: 0;
+  font-size: 1.2rem;
 }
 
 .itemInfo {
@@ -94,7 +100,6 @@
   color: var(--text-light-primary);
 }
 
-/* Google Map Embed container */
 .mapWrapper {
   border-radius: 16px;
   overflow: hidden;
@@ -103,39 +108,215 @@
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
-/* Right Column: Contact/Quote Form */
+/* =====================
+   RIGHT COLUMN: STEPPER CARD
+   ===================== */
 .formCard {
   padding: 40px;
 }
 
-.formTitle {
-  font-size: 1.8rem;
+/* --- Stepper Header --- */
+.stepperHeader {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.stepDotWrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.stepDot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light-theme);
+  background: var(--bg-light-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light-muted);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.stepActive {
+  border-color: var(--accent-red);
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--accent-red);
+}
+
+.stepDone {
+  border-color: var(--accent-red);
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.stepConnector {
+  flex: 1;
+  height: 2px;
+  background: var(--border-light-theme);
+  margin: 0 4px;
+  margin-bottom: 20px;
+  transition: background 0.4s ease;
+}
+
+.stepConnectorDone {
+  background: var(--accent-red);
+}
+
+.stepLabel {
+  font-size: 11px;
+  color: var(--text-light-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+.stepLabelActive {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+/* --- Progress Bar --- */
+.progressBar {
+  height: 3px;
+  background: var(--border-light-theme);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent-red);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+/* --- Panel Typography --- */
+.panelTitle {
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text-light-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.formSubtitle {
-  color: var(--text-light-secondary);
+.panelSub {
   font-size: 0.95rem;
-  margin-bottom: 30px;
+  color: var(--text-light-secondary);
+  margin-bottom: 1.25rem;
 }
 
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.formRow {
+/* =====================
+   OPTION CARDS
+   ===================== */
+.optionGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.optionCard {
+  border: 1.5px solid var(--border-light-theme);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--bg-light-secondary);
+}
+
+.optionCard:hover {
+  border-color: var(--accent-red);
+  background: rgba(220, 38, 38, 0.04);
+}
+
+.optionSelected {
+  border-color: var(--accent-red) !important;
+  background: rgba(220, 38, 38, 0.06) !important;
+}
+
+.optionSelected .optName {
+  color: var(--accent-red);
+}
+
+.optionCardWide {
+  grid-column: 1 / -1;
+}
+
+.optIcon {
+  color: var(--accent-red);
+  margin-bottom: 10px;
+}
+
+.optName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-light-primary);
+  margin-bottom: 4px;
+}
+
+.optDesc {
+  font-size: 12px;
+  color: var(--text-light-secondary);
+  line-height: 1.4;
+}
+
+.optBadge {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.badge-eco {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.badge-pop {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.badge-top {
+  background: rgba(139, 92, 246, 0.12);
+  color: #6d28d9;
+}
+
+/* =====================
+   FORM FIELDS (step 3)
+   ===================== */
+.fieldsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
 }
 
 .label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-light-secondary);
   text-transform: uppercase;
@@ -143,60 +324,201 @@
 }
 
 .input,
-.select,
 .textarea {
   background: var(--bg-light-tertiary);
   border: 1px solid var(--border-light-theme);
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 11px 14px;
   color: var(--text-light-primary);
   font-family: inherit;
   font-size: 0.95rem;
-  transition: var(--transition-smooth);
+  transition: border 0.2s, box-shadow 0.2s;
+  width: 100%;
 }
 
 .input:focus,
-.select:focus,
 .textarea:focus {
   outline: none;
   border-color: var(--accent-red);
   background: #ffffff;
-  box-shadow: 0 0 8px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 90px;
 }
 
-.submitBtn {
-  width: 100%;
-  margin-top: 10px;
+/* =====================
+   SUMMARY CARD (step 4)
+   ===================== */
+.summaryCard {
+  background: var(--bg-light-secondary);
+  border: 1px solid var(--border-light-theme);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
 }
 
-/* Form success message */
+.summaryHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-light-theme);
+}
+
+.summaryIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-red);
+  flex-shrink: 0;
+}
+
+.summaryName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-light-primary);
+}
+
+.summaryModel {
+  font-size: 0.85rem;
+  color: var(--text-light-secondary);
+}
+
+.summaryRows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.summaryLabel {
+  color: var(--text-light-secondary);
+  flex-shrink: 0;
+}
+
+.summaryVal {
+  font-weight: 600;
+  color: var(--text-light-primary);
+  text-align: right;
+}
+
+.summaryHighlight {
+  color: var(--accent-red);
+}
+
+.summaryDivider {
+  height: 1px;
+  background: var(--border-light-theme);
+}
+
+/* =====================
+   BUTTONS
+   ===================== */
+.btnRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 0.25rem;
+}
+
+.btnBack {
+  flex: 0 0 auto;
+  padding: 11px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light-theme);
+  background: var(--bg-light-secondary);
+  color: var(--text-light-secondary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+}
+
+.btnBack:hover {
+  background: var(--bg-light-tertiary);
+}
+
+.btnNext {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent-red);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.btnNext:hover {
+  opacity: 0.88;
+}
+
+.btnNext:active {
+  opacity: 0.75;
+  transform: scale(0.99);
+}
+
+.btnNext:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnWA {
+  background: #25D366;
+}
+
+/* =====================
+   SUCCESS STATE
+   ===================== */
 .successMessage {
-  padding: 40px;
+  padding: 40px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  min-height: 350px;
+  min-height: 320px;
 }
 
 .successIconWrapper {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background: rgba(34, 197, 94, 0.08);
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  border: 1.5px solid rgba(34, 197, 94, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #16a34a;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .successTitle {
@@ -208,26 +530,43 @@
 .successText {
   color: var(--text-light-secondary);
   font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  max-width: 340px;
 }
 
+/* =====================
+   RESPONSIVE
+   ===================== */
 @media (max-width: 968px) {
   .grid {
     grid-template-columns: 1fr;
     gap: 48px;
   }
+
   .formCard {
     padding: 30px 24px;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 640px) {
   .title {
     font-size: 2.1rem;
   }
-  .formRow {
+
+  .optionGrid {
     grid-template-columns: 1fr;
-    gap: 0;
+  }
+
+  .fieldsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .fieldFull {
+    grid-column: 1;
+  }
+
+  .stepLabel {
+    display: none;
   }
 }

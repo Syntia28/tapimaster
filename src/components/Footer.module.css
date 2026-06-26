@@ -1,40 +1,63 @@
 .footer {
-  background-color: #050507;
-  border-top: 1px solid var(--border-light);
-  padding: 60px 4% 30px;
+  background: radial-gradient(circle at 85% 15%, #2a0a12 0%, #0a0b14 50%, #020204 100%);
+  padding: 130px 8% 60px;
   position: relative;
+  overflow: hidden;
+  color: #fff;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.brand {
+.wordmark {
+  position: absolute;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(130px, 30vw, 360px);
+  font-weight: 950;
+  letter-spacing: 28px;
+  color: rgba(255, 255, 255, 0.011);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ===================== TOP ===================== */
+.top {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-bottom: 70px;
 }
 
-/* Reusable Logo Style matching Navbar */
-.logo {
+.brandBlock {
+  max-width: 460px;
+}
+
+.logoLine {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
 .logoIcon {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .logoIcon::after {
@@ -42,27 +65,14 @@
   position: absolute;
   inset: 2px;
   border: 1px dashed var(--accent-red);
-  border-radius: 4px;
+  border-radius: 6px;
   opacity: 0.7;
 }
 
-.logoTitle {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.logoTitle span {
-  color: var(--accent-red);
-}
-
-.logoSubtitle {
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: var(--text-muted);
-  text-transform: uppercase;
+.logoImg {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .logoText {
@@ -70,97 +80,185 @@
   flex-direction: column;
 }
 
-.desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  max-width: 320px;
-}
-
-.title {
+.logoTitle {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.logoTitle span {
+  color: #ff0044;
+}
+
+.logoSubtitle {
+  font-size: 0.6rem;
   font-weight: 700;
-  color: white;
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
+  letter-spacing: 3px;
+  color: #666;
+  text-transform: uppercase;
+  margin-top: 3px;
 }
 
-.title::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background: var(--accent-red);
+.tagline {
+  font-size: 0.82rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 30px;
 }
 
-.links {
+.redLine {
+  width: 110px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff0044, #ff5588);
+  margin-bottom: 38px;
+  box-shadow: 0 0 20px rgba(255, 0, 68, 0.6);
+}
+
+.infoPills {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
-.link {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  transition: var(--transition-smooth);
-}
-
-.link:hover {
-  color: var(--accent-red-hover);
-  transform: translateX(4px);
-}
-
-.contactText {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Bottom Bar */
-.bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 30px;
+.infoPill {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 14px;
+  font-size: 1.02rem;
+  color: #aaa;
+}
+
+.pillIcon {
+  font-size: 1.4rem;
+}
+
+/* ===================== NAV ===================== */
+.navCols {
+  display: flex;
+  gap: 100px;
   flex-wrap: wrap;
-  gap: 16px;
+}
+
+.navCol {
+  min-width: 180px;
+}
+
+.navTitle {
+  font-size: 0.78rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+.navLink {
+  display: block;
+  color: #999;
+  text-decoration: none;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  color: white;
+  transform: translateX(8px);
+}
+
+/* ===================== BOTTOM ===================== */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  margin: 50px 0;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .copy {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  color: #666;
+  font-size: 0.9rem;
 }
 
-.developer {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.waBtn {
+  background: #fff;
+  color: #111;
+  padding: 18px 48px;
+  border-radius: 60px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease;
+  white-space: nowrap;
 }
 
-.developer a {
-  color: var(--text-secondary);
+.waBtn:hover {
+  background: #ff0044;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(255, 0, 68, 0.5);
 }
 
-.developer a:hover {
-  color: var(--accent-red-hover);
+.socials {
+  display: flex;
+  gap: 16px;
 }
 
-@media (max-width: 968px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+.soc {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  transition: all 0.4s ease;
+}
+
+.soc:hover {
+  color: #ff0044;
+  border-color: #ff0044;
+  box-shadow: 0 0 25px rgba(255, 0, 68, 0.5);
+  transform: scale(1.15);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .top {
+    gap: 60px;
+  }
+
+  .navCols {
+    gap: 70px;
   }
 }
 
-@media (max-width: 576px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
+
+  .navCols {
+    flex-direction: column;
+    text-align: center;
+    gap: 50px;
+  }
+
   .bottom {
     flex-direction: column;
     text-align: center;

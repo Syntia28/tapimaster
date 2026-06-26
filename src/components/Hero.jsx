@@ -9,26 +9,26 @@ const SLIDES = [
   {
     id: 1,
     image: "/images/real/trabajo1_asiento_hilux.png",
-    title: "DISEÑO Y CONFORT SIN LÍMITES",
-    highlight: "TAPIMASTER",
-    subtitle: "TAPICERÍA AUTOMOTRIZ DE ALTA COSTURA",
-    description: "Transformamos el interior de tu vehículo en una cabina de lujo. Especialistas en acabados deportivos, clásicos y personalizados en Cajamarca.",
+    title: "DISEÑA EL INTERIOR DE TUS SUEÑOS",
+    highlight: "SUEÑOS",
+    subtitle: "TAPICERÍA PREMIUM QUE ENAMORA",
+    description: "Siente el aroma del cuero legítimo de importación y redefine cada viaje. Transformamos el habitáculo de tu vehículo en una imponente cabina de lujo con acabados deportivos.",
   },
   {
     id: 2,
     image: "/images/real/trabajo3_volante_rio.png",
-    title: "ACABADOS ARTESANALES DE LUJO",
-    highlight: "DETALLES",
+    title: "CADA DETALLE CUENTA EN TU CABINA",
+    highlight: "DETALLE",
     subtitle: "EL ARTE DE LA COSTURA DE PRECISIÓN",
-    description: "Cada puntada cuenta. Reconstrucción anatómica de asientos, volantes y consolas con materiales garantizados de primer nivel.",
+    description: "Tus manos merecen la máxima suavidad. Reconstruimos la anatomía de tus butacas y volantes con doble pespunte manual y rellenos ergonómicos de alta densidad.",
   },
   {
     id: 3,
     image: "/images/real/trabajo2_asiento_accent.png",
-    title: "MATERIALES SELECCIONADOS PREMIUM",
-    highlight: "GARANTÍA",
-    subtitle: "DURABILIDAD Y ESTILO EN CAJAMARCA",
-    description: "Elegancia que perdura. Desde el exclusivo cuero natural hasta la resistencia de la pranna y tacto cuero americano para un acabado perfecto.",
+    title: "ELEGANCIA INDESTRUCTIBLE EN TU VIAJE",
+    highlight: "ELEGANCIA",
+    subtitle: "MATERIALES DE GRADO AUTOMOTRIZ",
+    description: "Tu vehículo es tu carta de presentación. Deléitate con revestimientos premium formulados para soportar el sol de Cajamarca sin perder su frescura ni su textura.",
   }
 ];
 

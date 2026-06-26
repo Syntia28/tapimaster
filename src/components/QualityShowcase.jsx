@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Play, X, Shield, Settings, Heart, CheckCircle2, Volume2, VolumeX, MessageCircle, Share2, MapPin } from "lucide-react";
+import { Play, X, Shield, Settings, Heart, CheckCircle2, Volume2, VolumeX, MessageCircle, Share2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./QualityShowcase.module.css";
 
@@ -9,8 +9,12 @@ export default function QualityShowcase() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(148);
+  const [likeCount, setLikeCount] = useState(248);
+  const [hearts, setHearts] = useState([]);
+  const [tiltStyle, setTiltStyle] = useState({});
+
   const videoRef = useRef(null);
+  const phoneRef = useRef(null);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -25,183 +29,188 @@ export default function QualityShowcase() {
 
   const handleLike = (e) => {
     e.stopPropagation();
-    setIsLiked(!isLiked);
-    setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+    const nextLiked = !isLiked;
+    setIsLiked(nextLiked);
+    setLikeCount(prev => nextLiked ? prev + 1 : prev - 1);
+
+    if (nextLiked) {
+      const newHearts = Array.from({ length: 7 }).map((_, i) => ({
+        id: Date.now() + i,
+        left: Math.random() * 70 + 15,
+        delay: i * 0.08,
+        scale: Math.random() * 0.5 + 0.8,
+      }));
+      setHearts(prev => [...prev, ...newHearts]);
+
+      setTimeout(() => {
+        setHearts(prev => prev.filter(h => !newHearts.some(nh => nh.id === h.id)));
+      }, 2200);
+    }
+  };
+
+  // 3D Tilt
+  const handleMouseMove = (e) => {
+    if (!phoneRef.current) return;
+    const rect = phoneRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    setTiltStyle({
+      transform: `perspective(1200px) rotateX(${y * -18}deg) rotateY(${x * 22}deg) scale(1.04)`,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTiltStyle({
+      transform: "perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)",
+    });
   };
 
   const QUALITY_POINTS = [
-    {
-      icon: <Settings size={20} />,
-      title: "Reconstrucción Anatómica Completa",
-      description: "No nos limitamos a cambiar el material. Evaluamos la estructura metálica del asiento, rellenamos las espumas desgastadas y devolvemos la firmeza y soporte lumbar de fábrica."
-    },
-    {
-      icon: <Heart size={20} />,
-      title: "Costuras de Alta Densidad y Doble Hilo",
-      description: "Utilizamos hilos sintéticos alemanes de alta resistencia a la tensión y la fricción. Costuras dobles reforzadas con una alineación exacta y deportiva hecha a mano."
-    },
-    {
-      icon: <Shield size={20} />,
-      title: "Garantía Escrita TapiMaster",
-      description: "Nuestros trabajos cuentan con garantía de costura y adhesión de material. Nos enorgullece saber que tu tapizado durará años bajo el sol de Cajamarca sin despegarse ni romperse."
-    }
+    { icon: <Settings size={26} />, title: "Reconstrucción Anatómica", desc: "Espumas de alta densidad + soporte lumbar original." },
+    { icon: <Heart size={26} />, title: "Alta Costura Premium", desc: "Doble pespunte con hilo alemán y alineación perfecta." },
+    { icon: <Shield size={26} />, title: "Garantía de Lujo", desc: "5 años contra agrietamiento y decoloración por UV." }
   ];
 
   return (
     <section id="calidad" className={styles.section}>
-      <div className={styles.grid}>
-        {/* Left Column: Interactive Mobile Reel Showcase */}
-        <div className={styles.phoneContainer}>
-          {/* Smartphone Frame Outer Wrapper */}
-          <div className={styles.phoneFrame}>
-            <div className={styles.phoneSpeaker} />
-            <div className={styles.phoneInnerScreen}>
-              {/* Autoplaying background video preview */}
-              <video
-                ref={videoRef}
-                className={styles.videoElement}
-                src="https://assets.mixkit.co/videos/preview/mixkit-sewing-machine-stitching-a-leather-piece-41718-large.mp4"
-                autoPlay
-                loop
-                muted={isMuted}
-                playsInline
-              />
+      <div className={styles.bgAccent} />
 
-              {/* Phone Status Bar */}
-              <div className={styles.phoneStatusBar}>
-                <span className={styles.statusTime}>12:30</span>
-                <div className={styles.statusIcons}>
-                  <div className={styles.wifiIcon} />
-                  <div className={styles.signalIcon} />
-                  <div className={styles.batteryIcon} />
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {/* Celular Interactivo - Lado Izquierdo */}
+          <div className={styles.phoneContainer}>
+            <motion.div
+              ref={phoneRef}
+              className={styles.phoneFrame}
+              style={tiltStyle}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className={styles.phoneSpeaker} />
+
+              <div className={styles.phoneInnerScreen}>
+                <video
+                  ref={videoRef}
+                  className={styles.videoElement}
+                  src="/videos/upholstery_process.mp4"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  onLoadedMetadata={(e) => e.target.playbackRate = 1.6}
+                  suppressHydrationWarning
+                />
+
+                {/* Live Indicator */}
+                <div className={styles.liveTag}>
+                  <span className={styles.liveDot} /> EN VIVO • Taller TapiMaster
                 </div>
-              </div>
 
-              {/* Blinking Live Indicator */}
-              <div className={styles.liveTag}>
-                <span className={styles.liveDot} />
-                <span>EN VIVO - JR. MARISCAL CÁCERES 1031</span>
-              </div>
+                {/* Corazones voladores */}
+                <AnimatePresence>
+                  {hearts.map(h => (
+                    <motion.div
+                      key={h.id}
+                      className={styles.flyingHeart}
+                      initial={{ bottom: "25%", opacity: 0, scale: 0.5 }}
+                      animate={{
+                        bottom: "85%",
+                        opacity: [0, 1, 1, 0],
+                        scale: [0.6, h.scale, 0.7]
+                      }}
+                      exit={{ opacity: 0 }}
+                      style={{ left: `${h.left}%` }}
+                      transition={{ duration: 2.2, delay: h.delay }}
+                    >
+                      ❤️
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
 
-              {/* Side Interaction Icons (TikTok/Instagram style) */}
-              <div className={styles.sideActions}>
-                <button 
-                  className={`${styles.actionBtn} ${isLiked ? styles.actionLiked : ""}`}
-                  onClick={handleLike}
-                  aria-label="Dar me gusta"
+                {/* Acciones laterales estilo TikTok */}
+                <div className={styles.sideActions}>
+                  <button className={`${styles.actionBtn} ${isLiked ? styles.liked : ""}`} onClick={handleLike}>
+                    <Heart size={28} fill={isLiked ? "#ff0044" : "none"} />
+                    <span>{likeCount}</span>
+                  </button>
+                  <button className={styles.actionBtn}>
+                    <MessageCircle size={28} />
+                    <span>42</span>
+                  </button>
+                  <button className={styles.actionBtn}>
+                    <Share2 size={28} />
+                  </button>
+                </div>
+
+                {/* Volumen */}
+                <button className={styles.volumeBtn} onClick={toggleMute}>
+                  {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+                </button>
+
+                {/* Overlay de texto */}
+                <div className={styles.videoOverlay}>
+                  <h5>@tapimaster.cajamarca</h5>
+                  <p>Costura artesanal en cuero legítimo • Precisión de alta gama 🔥</p>
+                </div>
+
+                {/* Botón Play Grande */}
+                <motion.button
+                  className={styles.playBtn}
+                  onClick={openModal}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <Heart size={22} fill={isLiked ? "#dc2626" : "none"} />
-                  <span className={styles.actionCount}>{likeCount}</span>
-                </button>
-                <button className={styles.actionBtn} aria-label="Comentarios">
-                  <MessageCircle size={22} />
-                  <span className={styles.actionCount}>24</span>
-                </button>
-                <button className={styles.actionBtn} aria-label="Compartir">
-                  <Share2 size={22} />
-                  <span className={styles.actionCount}>Compartir</span>
-                </button>
+                  <Play size={32} fill="white" />
+                </motion.button>
               </div>
+            </motion.div>
 
-              {/* Volume Controller Mute/Unmute */}
-              <button 
-                className={styles.volumeBtn} 
-                onClick={toggleMute}
-                aria-label={isMuted ? "Activar sonido" : "Silenciar"}
-              >
-                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-              </button>
-
-              {/* Reel Info / Caption */}
-              <div className={styles.videoOverlay}>
-                <h5 className={styles.videoAuthor}>@tapimaster.cajamarca</h5>
-                <p className={styles.videoDesc}>
-                  El maestro tapicero cosiendo un panel lateral en cuero para una pick-up Hilux. ¡Precisión milimétrica hecha a mano! 🛠️💪
-                </p>
-                <div className={styles.videoHashtags}>
-                  <span>#tapiceria</span>
-                  <span>#cajamarca</span>
-                  <span>#hechoamano</span>
-                </div>
-              </div>
-
-              {/* Floating Fullscreen Trigger Button */}
-              <button 
-                className={styles.playBtn} 
-                onClick={openModal}
-                aria-label="Reproducir video de calidad a pantalla completa"
-              >
-                <Play size={22} fill="white" />
-              </button>
-            </div>
+            <p className={styles.reelFootnote}>
+              Pasa el mouse sobre el celular • Activa el sonido • Dale ❤️
+            </p>
           </div>
-          <span className={styles.reelFootnote}>💡 Haz clic en el ícono de reproducción para pantalla completa, o usa el ícono de audio para escuchar el taller.</span>
-        </div>
 
-        {/* Right Column: Narrative details */}
-        <div className={styles.infoContent}>
-          <span className={styles.subtitle}>Saber Hacer & Calidad</span>
-          <h2 className={styles.title}>¿Por qué elegir nuestro trabajo?</h2>
-          <p className={styles.introText}>
-            En Cajamarca, nos distinguimos por el cuidado de los detalles. La diferencia entre un tapizado común y uno premium radica en la preparación y el acabado artesanal de nuestros maestros tapiceros.
-          </p>
+          {/* Contenido Derecho */}
+          <div className={styles.infoContent}>
+            <span className={styles.subtitle}>CALIDAD QUE SE VE Y SE SIENTE</span>
+            <h2 className={styles.title}>El Arte Detrás de Cada Costura</h2>
+            <p className={styles.introText}>
+              No solo tapizamos. Creamos experiencias de lujo para tu vehículo con materiales premium y mano de obra de élite.
+            </p>
 
-          <div className={styles.featuresGrid}>
-            {QUALITY_POINTS.map((point, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={styles.featureCard}
-              >
-                <div className={styles.featureIconWrapper}>
-                  {point.icon}
-                </div>
-                <div className={styles.featureText}>
-                  <h4 className={styles.featureTitle}>{point.title}</h4>
-                  <p className={styles.featureDesc}>{point.description}</p>
-                </div>
-              </motion.div>
-            ))}
+            <div className={styles.featuresGrid}>
+              {QUALITY_POINTS.map((point, i) => (
+                <motion.div
+                  key={i}
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.15 }}
+                  whileHover={{ scale: 1.03, x: 10 }}
+                >
+                  <div className={styles.featureIcon}>{point.icon}</div>
+                  <div>
+                    <h4>{point.title}</h4>
+                    <p>{point.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Video Modal Overlay */}
+      {/* Modal Video */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={styles.modalOverlay}
-            onClick={closeModal}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className={styles.modalContent}
-              onClick={(e) => e.stopPropagation()}
-            >
+          <motion.div className={styles.modalOverlay} onClick={closeModal}>
+            <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}>
               <button className={styles.closeBtn} onClick={closeModal}>
-                <X size={18} />
-                <span>Cerrar</span>
+                <X size={24} /> Cerrar
               </button>
-
-              {/* Full screen vertical video player */}
-              <div className={styles.modalPlayerWrapper}>
-                <video
-                  className={styles.modalVideo}
-                  src="https://assets.mixkit.co/videos/preview/mixkit-sewing-machine-stitching-a-leather-piece-41718-large.mp4"
-                  autoPlay
-                  controls
-                  loop
-                />
-              </div>
+              <video className={styles.modalVideo} src="/videos/upholstery_process.mp4" autoPlay controls loop onLoadedMetadata={(e) => e.target.playbackRate = 1.6} suppressHydrationWarning />
             </motion.div>
           </motion.div>
         )}
