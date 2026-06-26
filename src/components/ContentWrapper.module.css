@@ -1,0 +1,25 @@
+/* ContentWrapper – the "curtain" layer that scrolls over the fixed Hero */
+
+.wrapper {
+  position: relative;
+  z-index: 10;
+  margin-top: 100vh;           /* push below the fixed Hero */
+
+  /* Solid base – always visible, never transparent */
+  background-color: var(--bg-light); /* #ffffff – same as MaterialBrowser */
+
+  /* The JS scroll tint is applied as a CSS custom property */
+  /* We use a pseudo-element so the solid background is never overridden */
+}
+
+/* Subtle diagonal overlay driven by scroll */
+.wrapper::before {
+  content: '';
+  position: fixed;             /* fixed so it covers the viewport */
+  inset: 0;
+  background: var(--scroll-tint, transparent);
+  opacity: 0.06;               /* very subtle – just a whisper */
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.6s ease;
+}
