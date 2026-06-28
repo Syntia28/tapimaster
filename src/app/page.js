@@ -10,6 +10,14 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ContentWrapper from "@/components/ContentWrapper";
 
+export const metadata = {
+  title: "Tapicería Automotriz Premium en Cajamarca",
+  description: "Descubre TapiMaster: tapizado de asientos de autos, cuero premium, diseños personalizados y acabados de lujo para tu vehículo en Cajamarca.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <>
