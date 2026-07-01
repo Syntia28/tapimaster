@@ -12,7 +12,7 @@ const CUEROS = ["Natural Genuino", "Americano 1.2", "Tacto Cuero", "Pranna"];
 const SOCIALS = [
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/share/1CiS5Z45YM/",
     svg: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
@@ -32,7 +32,7 @@ const SOCIALS = [
   },
   {
     label: "TikTok",
-    href: "#",
+    href: "https://www.tiktok.com/@tapimaster?_r=1&_t=ZS-97A7wBujRn6",
     svg: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.16 8.16 0 004.77 1.52V7.12a4.85 4.85 0 01-1-.43z" />

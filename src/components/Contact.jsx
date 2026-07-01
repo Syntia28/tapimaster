@@ -77,6 +77,53 @@ export default function Contact() {
               referrerPolicy="no-referrer-when-downgrade" title="TapiMaster Ubicación"
             />
           </div>
+
+          {/* Social Media Section */}
+          <motion.div 
+            className={styles.socialsSection}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className={styles.socialsHeader}>
+              <h4 className={styles.socialsTitle}>Síguenos en Redes Sociales</h4>
+              <p className={styles.socialsSub}>Descubre nuestros trabajos, tips de cuidado y novedades</p>
+            </div>
+            <div className={styles.socialLinks}>
+              <motion.a
+                href="https://www.facebook.com/share/1CiS5Z45YM/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className={styles.socialIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                  </svg>
+                </div>
+                <span className={styles.socialLabel}>Facebook</span>
+              </motion.a>
+
+              <motion.a
+                href="https://www.tiktok.com/@tapimaster?_r=1&_t=ZS-97A7wBujRn6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                whileHover={{ scale: 1.1, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className={styles.socialIcon}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.16 8.16 0 004.77 1.52V7.12a4.85 4.85 0 01-1-.43z" />
+                  </svg>
+                </div>
+                <span className={styles.socialLabel}>TikTok</span>
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
 
         {/* RIGHT: Stepper */}

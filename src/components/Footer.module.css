@@ -247,32 +247,313 @@
   transform: scale(1.15);
 }
 
-/* Responsive */
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablets y pantallas medianas */
 @media (max-width: 1024px) {
+  .footer {
+    padding: 100px 6% 50px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
   .top {
     gap: 60px;
+    margin-bottom: 50px;
   }
 
   .navCols {
     gap: 70px;
   }
+
+  .brandBlock {
+    max-width: 100%;
+  }
+
+  .wordmark {
+    font-size: clamp(100px, 25vw, 280px);
+    bottom: -70px;
+    letter-spacing: 20px;
+  }
+
+  .bottom {
+    gap: 24px;
+  }
+
+  .waBtn {
+    padding: 16px 40px;
+    font-size: 0.9rem;
+  }
 }
 
+/* Tablets pequeños y celulares grandes */
 @media (max-width: 768px) {
+  .footer {
+    padding: 80px 5% 45px;
+  }
+
   .top {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .brandBlock {
+    width: 100%;
+  }
+
+  .logoLine {
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    margin-bottom: 20px;
+  }
+
+  .redLine {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+  }
+
+  .infoPills {
+    gap: 16px;
+    align-items: center;
+  }
+
+  .infoPill {
+    font-size: 0.95rem;
   }
 
   .navCols {
     flex-direction: column;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .navCol {
+    min-width: 100%;
+  }
+
+  .navTitle {
+    margin-bottom: 20px;
+    font-size: 0.75rem;
+  }
+
+  .navLink {
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+  }
+
+  .navLink:hover {
+    transform: translateX(0);
+  }
+
+  .divider {
+    margin: 40px 0;
   }
 
   .bottom {
     flex-direction: column;
     text-align: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .copyLink {
+    font-size: 0.85rem;
+    width: 100%;
+    order: 3;
+  }
+
+  .waBtn {
+    padding: 14px 32px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    order: 1;
+  }
+
+  .socials {
+    gap: 12px;
+    justify-content: center;
+    order: 2;
+  }
+
+  .soc {
+    width: 44px;
+    height: 44px;
+  }
+
+  .wordmark {
+    font-size: clamp(80px, 20vw, 200px);
+    bottom: -50px;
+    letter-spacing: 16px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .footer {
+    padding: 60px 4% 35px;
+  }
+
+  .top {
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .logoLine {
+    gap: 10px;
+  }
+
+  .logoIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logoImg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .logoTitle {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+  }
+
+  .logoSubtitle {
+    font-size: 0.55rem;
+    letter-spacing: 2px;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+
+  .redLine {
+    width: 80px;
+    height: 2px;
+    margin-bottom: 20px;
+  }
+
+  .infoPills {
+    gap: 14px;
+  }
+
+  .infoPill {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+
+  .pillIcon {
+    font-size: 1.2rem;
+  }
+
+  .navCols {
+    gap: 30px;
+  }
+
+  .navTitle {
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+  }
+
+  .navLink {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+
+  .divider {
+    margin: 30px 0;
+  }
+
+  .bottom {
+    gap: 16px;
+  }
+
+  .copyLink {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .waBtn {
+    padding: 12px 24px;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    width: 100%;
+  }
+
+  .socials {
+    gap: 10px;
+  }
+
+  .soc {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .wordmark {
+    font-size: clamp(60px, 18vw, 150px);
+    bottom: -40px;
+    letter-spacing: 12px;
+  }
+}
+
+/* Ultra pequeños (menos de 360px) */
+@media (max-width: 360px) {
+  .footer {
+    padding: 50px 3% 30px;
+  }
+
+  .logoTitle {
+    font-size: 1rem;
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+  }
+
+  .redLine {
+    width: 70px;
+  }
+
+  .infoPill {
+    font-size: 0.85rem;
+  }
+
+  .navTitle {
+    font-size: 0.65rem;
+  }
+
+  .navLink {
+    font-size: 0.85rem;
+  }
+
+  .copyLink {
+    font-size: 0.75rem;
+  }
+
+  .waBtn {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+
+  .soc {
+    width: 36px;
+    height: 36px;
+  }
+
+  .wordmark {
+    font-size: clamp(50px, 15vw, 120px);
+    letter-spacing: 8px;
   }
 }
