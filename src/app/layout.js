@@ -24,8 +24,29 @@ export const metadata = {
     default: "TapiMaster | Tapicería Automotriz Premium en Cajamarca",
     template: "%s | TapiMaster",
   },
-  description: "Especialistas en tapizado de asientos de autos en Cajamarca. Trabajamos con Cuero Natural, Cuero Americano, Tacto Cuero y Pranna. Diseños personalizados y alta costura con garantía.",
-  keywords: ["tapiceria cajamarca", "tapizado de autos", "cuero automotriz", "tapimaster", "mariscal caceres 1031", "pranna cajamarca"],
+  description: "Especialistas en tapizado de asientos de autos en Cajamarca. Trabajo profesional en Cuero Natural, Cuero Americano, Tacto Cuero y Pranna. Diseños personalizados y alta costura con garantía.",
+  keywords: [
+    "mejores tapicerias en cajamarca",
+    "tapiceria cajamarca",
+    "tapiceria automotriz cajamarca",
+    "tapizado de asientos de autos cajamarca",
+    "tapizado de autos cajamarca",
+    "tapizado de carros cajamarca",
+    "fundas para asientos de autos cajamarca",
+    "tapiceria de autos en cajamarca",
+    "tapizado de timones cajamarca",
+    "tapiceria de cuero cajamarca",
+    "reparacion de asientos de auto cajamarca",
+    "fundas tacto cuero cajamarca",
+    "tapiceria de motos cajamarca",
+    "cuero natural para autos cajamarca",
+    "tacto cuero cajamarca",
+    "cuero pranna cajamarca",
+    "tapizado de techos cajamarca",
+    "taller de tapiceria cajamarca",
+    "tapimaster cajamarca",
+    "mariscal caceres 1031"
+  ],
   authors: [{ name: "TapiMaster" }],
   alternates: {
     canonical: "/",
@@ -82,14 +103,39 @@ export default function RootLayout({ children }) {
     name: "TapiMaster",
     url: siteUrl,
     image: `${siteUrl}/images/logo/logo.png`,
-    description: "Especialistas en tapizado de asientos de autos en Cajamarca con cuero premium y acabados personalizados.",
+    description: "Especialistas en tapizado de asientos de autos en Cajamarca. Trabajamos con Cuero Natural, Cuero Americano, Tacto Cuero y Pranna.",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Jr. Mariscal Cáceres 1031",
       addressLocality: "Cajamarca",
+      addressRegion: "Cajamarca",
+      postalCode: "06001",
       addressCountry: "PE",
     },
-    telephone: "+51 999 999 999",
-    areaServed: "Cajamarca",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -7.159392,
+      longitude: -78.513524
+    },
+    telephone: "+51 992 855 239",
+    priceRange: "$$",
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Cajamarca"
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      opens: "08:00",
+      closes: "18:30"
+    }
   };
 
   return (

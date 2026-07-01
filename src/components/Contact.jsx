@@ -58,7 +58,7 @@ export default function Contact() {
           <div className={styles.contactList}>
             {[
               { icon: "📍", label: "Dirección", value: "Jr. Mariscal Cáceres 1031, Cajamarca" },
-              { icon: "📞", label: "Teléfono / WhatsApp", value: "+51 976 543 210" },
+              { icon: "📞", label: "Teléfono / WhatsApp", value: "+51 992 855 239" },
               { icon: "🕐", label: "Horario de Atención", value: "Lun - Sáb: 8:00 AM - 6:30 PM" },
             ].map(item => (
               <div key={item.label} className={styles.contactItem}>
